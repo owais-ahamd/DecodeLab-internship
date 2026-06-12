@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chatbot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+<body>
+  <div class="shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a7 7 0 0 1 7 7c0 4.5-3.5 7.5-7 10C8.5 16.5 5 13.5 5 9a7 7 0 0 1 7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <span class="brand-name">AI Chatbot</span>
+        </div>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Navigation">
+        <button class="nav-item active" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span>New Chat</span>
+        </button>
+        <button class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <span>Search</span>
+        </button>
+        <button class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+          </svg>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-card">
+          <div class="user-avatar" aria-hidden="true">U</div>
+          <div class="user-info">
+            <span class="user-name">Guest User</span>
+            <span class="user-plan">Free Plan</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="chat-main">
+
+      <!-- Top bar -->
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open sidebar" aria-expanded="false" aria-controls="sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <div class="topbar-identity">
+          <div class="status-dot" aria-hidden="true"></div>
+          <span class="topbar-title">AI Chatbot</span>
+        </div>
+        <button class="clear-btn" id="clearBtn" aria-label="Clear conversation" title="Clear conversation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.65"/>
+          </svg>
+        </button>
+      </header>
+
+      <!-- Messages -->
+      <div class="messages" id="chat" role="log" aria-live="polite" aria-label="Chat messages"></div>
+
+      <!-- Quick replies -->
+      <div class="quick-replies" id="quickBtns" aria-label="Quick reply suggestions">
+        <button class="chip" data-msg="hi">Say hello</button>
+        <button class="chip" data-msg="help">Show commands</button>
+        <button class="chip" data-msg="how are you">How are you?</button>
+        <button class="chip" data-msg="hours">Office hours</button>
+        <button class="chip" data-msg="location">Location</button>
+      </div>
+
+      <!-- Composer -->
+      <div class="composer">
+        <input
+          id="userInput"
+          type="text"
+          placeholder="Send a message…"
+          autocomplete="off"
+          aria-label="Message input"
+          maxlength="300"
+        />
+        <button id="sendBtn" type="button" aria-label="Send message">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <script src="chatbot.js"></script>
+</body>
+</html>
